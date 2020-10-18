@@ -52,6 +52,16 @@ class Singlylist():
         while printval is not None:
             print (printval.dataval)
             printval = printval.nextval
+    def Busqueda(self,key):
+        current = self.head 
+        indices = []
+        count = 0
+        while current.nextval :
+            if current.dataval <= key:
+                indices.append(count)
+            count +=1
+            current = current.nextval
+        return indices
 
 
 SO2_P = Singlylist()
@@ -59,7 +69,9 @@ df = pd.read_excel('Dataproject.xlsx', sheet_name='Hoja1')
 saturacion = df['Sa02'].values.tolist()
 for elemento in saturacion :
     SO2_P.PushBack(elemento)
-SO2_P.listprint()
+#SO2_P.listprint()
+indice= SO2_P.Busqueda(85)
+print(df.iloc[indice])  
 
 
 
