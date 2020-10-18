@@ -60,3 +60,10 @@ saturacion = df['Sa02'].values.tolist()
 for elemento in saturacion :
     SO2_P.PushBack(elemento)
 SO2_P.listprint()
+
+
+
+
+
+
+
