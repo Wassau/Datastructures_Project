@@ -21,28 +21,32 @@ class ArrayStack(Generic[T]):
     
     def push(self, element: T):
         if(self.top == self.stack.size -1):
-            old = self.stack.copy
-            self.stack = np.empty(old.size *2, dtype=np.object )
-            self.stack[0:old.size] = old[0:old.size]
-        self.stack[self.top] = element
+            old = self.stack.copy()
+            self.stack = np.empty( (old.size *2), dtype=np.object )
+            self.stack[0:old.size:1] = old[0:old.size:1]
         self.top = self.top + 1
+        self.stack[self.top] = element
+        
+        print(self.stack)
     
     def pop(self)->T:
         if self.isEmpty():
             raise Exception("Empty stack")
-        topElement = self.stack[self.top-1]
-        self.top = self.top -1
+        topElement = self.stack[self.top]
         self.stack[self.top] = None
+        self.top = self.top -1
         return topElement
     
-stack = ArrayStack(10)
+stack = ArrayStack(1)
 stack.push(1)
 stack.push(2)
 stack.push(3)
 
+
 print(stack.pop())
 print(stack.pop())
 print(stack.pop())
+print(stack.stack.size)
 
 
 
