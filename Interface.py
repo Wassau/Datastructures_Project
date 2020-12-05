@@ -18,6 +18,7 @@ def register_user():
   Label(screen1, text = "Te has registrado", bg = '#72C6FA' , font = ("Times New Roman", 14)).pack()
 
 
+
 def register():
   global screen1
   screen1 = Toplevel(screen)
