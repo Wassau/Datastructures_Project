@@ -31,7 +31,7 @@ for id_user, USERNAME, PASSWORD, NOMBRE, FECHA_NAC, REGION, PRIORITY in sheet.it
             arr.add(arr.size,registro) 
 
     u = Users.User(id_user.value , str(USERNAME.value) ,str (PASSWORD.value), str (NOMBRE.value),
-                  str (FECHA_NAC.value),str (REGION.value),str(PRIORITY), arr )
+                  str (FECHA_NAC.value),str (REGION.value),(PRIORITY.value), arr )
     
     if i != 0:
         Usuarios.add(Usuarios.size, u)
