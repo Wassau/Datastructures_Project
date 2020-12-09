@@ -1,0 +1,14 @@
+from openpyxl import load_workbook
+import Users
+
+FILE_PATH = 'Datos.xlsx'
+SHEET = 'Usuarios'
+workbook = load_workbook(FILE_PATH, read_only = False)
+sheet = workbook[SHEET]
+
+u = Users.User(1,'a','a','Lopez','a','a',None)
+
+for id_user, USERNAME, PASSWORD, NOMBRE, FECHA_NAC, REGION in sheet.iter_rows():
+    print(str(id_user.value) + " " + USERNAME.value + " " + PASSWORD.value + " " + str(NOMBRE.value) + 
+           " " + str(FECHA_NAC.value) + " " + str(REGION.value))
+    

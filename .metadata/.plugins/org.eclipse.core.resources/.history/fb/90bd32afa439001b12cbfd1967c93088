@@ -1,0 +1,17 @@
+'''
+Created on 8/12/2020
+
+@author: User
+'''
+
+class User():
+    def __init__(self,self id : int,name : str ,):
+        self.name = name
+        se
+
+    def __str__(self):
+        return self.name
+    
+    
+us = User('Pero')
+print(us.__str__())

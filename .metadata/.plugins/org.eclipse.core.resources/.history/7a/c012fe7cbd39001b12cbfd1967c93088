@@ -1,0 +1,173 @@
+from tkinter import *
+from tkcalendar import *
+from openpyxl import load_workbook
+from src import ArrayList
+from Users import *
+
+
+FILE_PATH = 'Datos.xlsx'
+SHEET = 'Usuarios'
+workbook = load_workbook(FILE_PATH, read_only = False)
+sheet = workbook[SHEET]
+
+#for id_user, nombre, apellido, saturacion, frecuencia_car, hora_lect, fecha_lect in sheet.iter_rows():
+    
+
+
+def register_user():
+
+  username_data = username.get()
+  password_data = password.get()
+
+  file = open(username_data + ".txt", "w")
+  file.write(username_data + "\n")
+  file.write(password_data)
+  file.close()
+
+  username_ent.delete(0, END)
+  password_ent.delete(0, END)
+
+  Label(screen1, text="Te has registrado", bg='#72C6FA' , font=("Times New Roman", 14)).pack()
+
+
+def register():
+  global screen1
+  screen1 = Toplevel(screen)
+  screen1.title("Registro de usuario")
+  screen1.geometry("500x550")
+  
+  global username
+  global password
+  global username_ent
+  global password_ent
+  global namep_ent
+  global birthp_ent
+  global region_ent
+
+  username = StringVar()
+  password = StringVar()
+  namep = StringVar()
+  birthp = StringVar()
+  region = StringVar()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  
+  Label(screen1, text="Nombre de usuario", bg="#72C6FA", font=("Times New Roman", 12)).pack()
+  Label(screen1, text="", bg="#72C6FA").pack()
+  username_ent = Entry(screen1, textvariable=username)
+  username_ent.pack()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Label(screen1, text="Contraseña", bg="#72C6FA", font=("Times New Roman", 12)).pack()
+  Label(screen1, text="", bg="#72C6FA").pack()
+  password_ent = Entry(screen1, textvariable=password, show="*")
+  password_ent.pack()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Label(screen1, text="Nombre Completo", bg="#72C6FA", font=("Times New Roman", 12)).pack()
+  Label(screen1, text="", bg="#72C6FA").pack()
+  namep_ent = Entry(screen1, textvariable=namep)
+  namep_ent.pack()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Label(screen1, text="Fecha de Nacimiento", bg="#72C6FA", font=("Times New Roman", 12)).pack()  ###Revisar esta monda###
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Button(screen1, text="Escoger Fecha", command=register_date).pack()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Label(screen1, text="Región", bg="#72C6FA", font=("Times New Roman", 12)).pack() 
+  Label(screen1, text="", bg="#72C6FA").pack()
+  region_ent = Entry(screen1, textvariable=region)
+  region_ent.pack()
+
+  Label(screen1, text="", bg="#72C6FA").pack()
+  Button(screen1, text="Registrar", width=10, height=1, command=register_user).pack()
+  Label(screen1, text="", bg="#72C6FA").pack()
+  screen1.config(background="#72C6FA")
+
+
+def login():
+  global screen2
+  global userlog
+  global passlog
+
+  userlog = StringVar()
+  passlog = StringVar()
+
+  screen2 = Toplevel(screen)
+  screen2.title("Internet Of Health")
+  screen2.geometry("500x550")
+  Label(screen2, text="Internet of Health", bg="#2396E6", width="300", height="2", font=("Times New Roman", 20)).pack()
+  img2 = PhotoImage(file="logicon2.png")
+  Label(screen2, image=img2, background="#2396E6").pack()
+
+  Label(screen2, text="Nombre de Usuario", bg="#2396E6", font=("Times New Roman", 12)).pack()
+  Label(screen2, text="", bg="#2396E6").pack()
+  userlog = Entry(screen2, textvariable=userlog)
+  userlog.pack()
+  Label(screen2, text="", bg="#2396E6").pack()
+  Label(screen2, text="Contraseña", bg="#2396E6", font=("Times New Roman", 12)).pack()
+  Label(screen2, text="", bg="#2396E6").pack()
+  passlog = Entry(screen2, textvariable=passlog, show="*")
+  passlog.pack()
+  Label(screen2, text="", bg="#2396E6").pack()
+  Button(screen2, text="Ingresar", command=gui).pack()
+  screen2.config(background="#2396E6")
+  screen.mainloop()
+
+  print("Has ingresado!")
+
+
+def register_date():
+  global pop
+  pop = Toplevel(screen1)
+  pop.title("Escoger Fecha")
+  pop.geometry("300x300")
+  cal = Calendar(pop, font="Arial 14", selectmode='day', year=2018, month=2, day=5)
+  cal.pack(fill="both", expand=True)
+
+  
+def gui():
+  global screen3
+  screen3 = Tk()
+  screen3.geometry("750x600")
+  screen3.title("Interfaz de Usuario")
+  Label(screen3, text="Internet of Health", bg="#2396f6", width="300", height="3", font=("Times New Roman", 24)).pack()
+  
+  bn1 = Button(screen3, text="Informacion Personal", height="2", width="18")
+  bn1.place(x=20, y=130)
+
+  bn2 = Button(screen3, text="Datos Vitales", height="2", width="18")
+  bn2.place(x=20, y=210)
+
+  bn3 = Button(screen3, text="Información IOH", height="2", width="18")
+  bn3.place(x=20, y=290)
+
+  bn4 = Button(screen3, text="Enlaces externos", height="2", width="18")
+  bn4.place(x=20, y=370)
+
+  bn5 = Button(screen3, text="Salir", height="2", width="18")
+  bn5.place(x=20, y=450)
+  
+  screen3.config(background="#2396E6")
+
+
+def main_screen():
+  global screen
+  screen = Tk()
+  screen.geometry("500x550")
+  screen.title("Internet Of Health")
+  Label(text="Internet of Health", bg="#2396E6", width="300", height="3", font=("Times New Roman", 24)).pack()
+  
+  img = PhotoImage(file="logicon.png")
+  Label(screen, image=img, background="#2396E6").pack()
+  Label(text="", bg="#2396E6").pack()
+  Button(text="Ingresar", height="2", width="30", command=login).pack()
+  Label(text="", bg="#2396E6").pack()
+  Button(text="Registrarse", height="2", width="30", command=register).pack()
+  screen.config(background="#2396E6")
+  
+  screen.mainloop()
+
+
+main_screen()

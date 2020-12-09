@@ -1,0 +1,54 @@
+'''
+Created on 8/12/2020
+
+@author: User
+'''
+
+from src import ArrayList
+
+ar = ArrayList.ArrayLinerList(10)
+
+class Registro():
+    def __init__(self,id:int,satOxi:int,fCardi:int,hora:str,fecha:str):
+        self.id = id
+        self.satOxi = satOxi
+        self.fCardi = fCardi
+        self.hora = hora
+        self.fecha = fecha 
+    
+    def __str__(self):
+        return self.hora
+        
+class Registros():
+    def __init__(self, listaRegistros:ar):
+        self.ListaRegistros = listaRegistros
+        self.PromedioOx = 0
+        self.PromedioFCar = 0
+
+class User():
+    def __init__(self,id : int, username : str,password:str,name : str ,fecha:str,region:str,registro:Registros):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.name = name
+        self.fecha = fecha
+        self.region = region
+        self.registro = registro
+
+    def __str__(self):
+        return self.name
+    
+
+        
+
+reg1 = Registro(10,11,2,' asd',' rew')
+arr = ArrayList.ArrayLinerList(10)
+arr.add(0, reg1)
+reg  = Registros(ar)
+
+
+
+print(arr)
+
+
+

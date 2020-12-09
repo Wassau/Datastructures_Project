@@ -1,0 +1,7 @@
+'''
+Created on 8/12/2020
+
+@author: User
+'''
+import tkinter
+tkinter._test()
