@@ -9,7 +9,7 @@ Heaps and priorityqueue
 class Priorityqueue():
     def __init__(self,n=0):
         self.n = n
-        self.Array = [0]*20
+        self.Array = [None]*20
         self.size = 0
     def insertitem(self,x):
         self.Array[self.size]=x
@@ -25,10 +25,13 @@ class Priorityqueue():
             parent = int((child-1)/2)
         self.Array[child]=temp
     def Removemax(self):
+        if self.size == 0:
+            return None
         Max = self.Array[0]
         self.Array[0]=self.Array[self.size-1]
         self.moveDown()
-        return max
+        self.size = self.size-1
+        return Max
     def  moveDown(self):
         flag = False
         largest =0
@@ -47,24 +50,25 @@ class Priorityqueue():
             child=2*parent+1;
         self.Array[parent]=temp
                 
-                
-            
-        
-        
-        
-        
-        
 
 
-cola = Priorityqueue(20)
-cola.insertitem(2)
-cola.insertitem(5)
-cola.insertitem(7)
-cola.insertitem(4)
-cola.insertitem(8)
-cola.Removemax()
-cola.Removemax()        
-            
+#cola = Priorityqueue(20)
+#cola.insertitem(2)
+#cola.insertitem(5)
+#cola.insertitem(7)
+#cola.insertitem(4)
+#cola.insertitem(8)
+#cola.insertitem(1)
+#cola.insertitem(1)
+#print(cola.Removemax())
+#print(cola.Removemax())        
+#print(cola.Removemax())
+#print(cola.Removemax())    
+#print(cola.Removemax())
+#print(cola.Removemax())    
+#print(cola.Removemax())
+#print(cola.Removemax())    
+#print("Hola")
             
         
         

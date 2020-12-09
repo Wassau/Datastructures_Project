@@ -1,10 +1,18 @@
 from openpyxl import load_workbook
+import Users
 
-FILE_PATH = 'Test.xlsx'
-SHEET = 'Hoja1'
+FILE_PATH = 'Datos.xlsx'
+SHEET = 'Usuarios'
 workbook = load_workbook(FILE_PATH, read_only = False)
 sheet = workbook[SHEET]
 
-for id_user, nombre, apellido, saturacion, frecuencia_car, hora_lect, fecha_lect in sheet.iter_rows():
-    print(str(id_user.value) + " " + nombre.value + " " + apellido.value + " " + str(saturacion.value) + " " + str(frecuencia_car.value) + " " + str(hora_lect.value) + " " + str(fecha_lect.value))
+u = Users.User(1,'a','a','Lopez','a','a',None)
+
+for id_user, USERNAME, PASSWORD, NOMBRE, FECHA_NAC, REGION in sheet.iter_rows():
+    print(str(id_user.value) + " " + USERNAME.value + " " + str( PASSWORD.value) + " " + str(NOMBRE.value) + 
+           " " + str(FECHA_NAC.value) + " " + str(REGION.value))
     
+    u.id = (id_user.value)
+    u.name = str(NOMBRE.value)
+    
+print(u.id)

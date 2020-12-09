@@ -72,4 +72,3 @@ class ArrayLinerList(Generic[T]):
         
         string = string +  ' ] '
         return string
-        
