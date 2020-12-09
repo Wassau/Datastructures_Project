@@ -1,0 +1,11 @@
+MODULES_MANAGER_V3
+Excel|D:\Documentos\Unal\Repository\Wassau\IOH\Excel.py
+Interface|D:\Documentos\Unal\Repository\Wassau\IOH\Interface.py
+Priorityqueue|D:\Documentos\Unal\Repository\Wassau\IOH\Priorityqueue.py
+Users|D:\Documentos\Unal\Repository\Wassau\IOH\Users.py
+src.ArrayList|D:\Documentos\Unal\Repository\Wassau\IOH\src\ArrayList.py
+src.ArrayQueue|D:\Documentos\Unal\Repository\Wassau\IOH\src\ArrayQueue.py
+src.ArrayStack|D:\Documentos\Unal\Repository\Wassau\IOH\src\ArrayStack.py
+src.Singlelist|D:\Documentos\Unal\Repository\Wassau\IOH\src\Singlelist.py
+src.__init__|D:\Documentos\Unal\Repository\Wassau\IOH\src|^
+src.queuewithStacks|D:\Documentos\Unal\Repository\Wassau\IOH\src\queuewithStacks.py
