@@ -43,7 +43,7 @@ sheet3 = workbook['Doctores']
 Medicos = ArrayList.ArrayLinerList(10)
 for id, NOMBRE, DISPONIBLE in sheet3.iter_rows():
     if str(NOMBRE.value) != "NOMBRE":
-        medic = Medic(id.value,str(NOMBRE.value),bool(DISPONIBLE))
+        medic = Medic(id.value,str(NOMBRE.value),bool(DISPONIBLE.value))
         Medicos.add(Medicos.size, medic)
 
 
@@ -73,6 +73,9 @@ def register_user():
 
   username_data = username.get()
   password_data = password.get()
+  name_us = namep_ent.get()
+
+  region = region_ent.get()
 
   file = open(username_data + ".txt", "w")
   file.write(username_data + "\n")
@@ -83,7 +86,24 @@ def register_user():
   password_ent.delete(0, END)
 
   Label(screen1, text="Te has registrado", bg='#72C6FA' , font=("Times New Roman", 14)).pack()
-
+  idus = sheet.cell(len(sheet['A']),1).value + 1
+  sheet.cell(len(sheet['A'])+1,1).value =  idus
+  sheet.cell(len(sheet['B']),2).value = str(username_data)
+  sheet.cell(len(sheet['C']),3).value = str(password_data)
+  sheet.cell(len(sheet['D']),4).value = str(name_us)
+  sheet.cell(len(sheet['E']),5).value = now.date()
+  sheet.cell(len(sheet['F']),6).value = str(region)
+  sheet.cell(len(sheet['G']),7).value = 0
+  
+  arr = ArrayList.ArrayLinerList(10)
+  
+  user = Users.User(idus,username_data,password_data,name_us,'',region,0,arr)
+  Usuarios.add(Usuarios.size, u)
+  colaUs.insertitem(Usuarios.get(Usuarios.size-1))
+  
+  workbook.save(FILE_PATH)
+  
+  print("Registro")
 
 def register():
   global screen1
